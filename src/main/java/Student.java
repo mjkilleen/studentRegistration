@@ -13,15 +13,16 @@
 import java.util.ArrayList;
 import org.joda.time.*;
 
-public class Student {
+public class Student 
+   {
 	 
 		
 		public String name;
-		public int age;
-		private String idnum;
-		private String username;
+		public final int age;
+		private final String idnum;
+		private final String username;
 		private final DateTime DOB;
-		private Coursename ECE;
+		private Coursename course;
 		
 		
 		public Student (String n, int a, String id, String user, DateTime day)
@@ -32,18 +33,20 @@ public class Student {
 			this.DOB = day;
 		
 		}
+
 		
-		//public static void main (String [] args){
+	
 		public String getName(){
 			return this.name; 
 		}
-		public String getID(){
-			return this.idnum;
-		}
-	
+		
 		public int getAge(){
 			return this.age; 
 			}
+                public String getIDnum(){
+			return this.idnum;
+		}
+	
 		
 		
 		public DateTime getDOB(){
@@ -56,12 +59,22 @@ public class Student {
 			return this.name + this.DOB + this.idnum;
 		}
 		
-		public void addStudent (Coursename ECE){
-			 this.ECE = ECE;
+		public void addStudent (Coursename course){
+			 this.course = course;
 		}
-		public  Coursename getECE() {
-			return this.ECE;
+                
+                public void addStudenttocourse (Coursename course){
+			 this.course = course;
+                }
+                
+		public  Coursename getCourse() {
+			return this.course;
 		}
+               
+                
+                
+                
+                
 	    public ArrayList<Module> getModules(ArrayList<Module> modules) {
 	        ArrayList<Module> studentsModules = new ArrayList<>();
 	        for (int i=0; i< modules.size(); i++) {
@@ -72,5 +85,7 @@ public class Student {
 	            }
 	        }
 	        return studentsModules;
-	    }
-	}
+            }
+}
+
+  

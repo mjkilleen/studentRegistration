@@ -20,7 +20,7 @@ public class Module
     private final String mod_id;
     private final ArrayList<Student> students;
 
-    public Module(String module, String id)
+    public Module(String id, String module)
     {
       this.mod_name = module;
       this.mod_id = id;

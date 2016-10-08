@@ -20,12 +20,16 @@ public class Module
     private final String mod_id;
     private final ArrayList<Student> students;
 
-    public Module(String id, String module)
+    public Module(String id, String module,  ArrayList<Student>students)
     {
       this.mod_name = module;
       this.mod_id = id;
       this.students = new ArrayList<>();
 
+    }
+     public void addStudent(Student student) {
+        this.students.add(student);
+        student.addModule(this);
     }
 
     public String getName() {
@@ -39,6 +43,7 @@ public class Module
     public ArrayList<Student> getStudents() {
       return this.students;
     }
+     
 
     public void addStudents(ArrayList<Student> students) {
       this.students.addAll(students);

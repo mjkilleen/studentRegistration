@@ -21,11 +21,11 @@ public class Student
 		public final int age;
 		private final String idnum;
 		private final String username;
-		private final DateTime DOB;
+		private final LocalDate DOB;
 		private Coursename course;
+		private ArrayList<Module> modules = new ArrayList<Module>();
 		
-		
-		public Student (String n, int a, String id, String user, DateTime day)
+		public Student (String n, int a, String id, String user, LocalDate day)
 		{ 	this.name = n;
 			this.age = a;
 			this.idnum = id;
@@ -49,7 +49,7 @@ public class Student
 	
 		
 		
-		public DateTime getDOB(){
+		public LocalDate getDOB(){
 			return DOB;
 		}
 		public String getUsername(){
@@ -63,29 +63,29 @@ public class Student
 			 this.course = course;
 		}
                 
-                public void addStudenttocourse (Coursename course){
+                public void addStudentocourse (Coursename course){
 			 this.course = course;
                 }
+                public ArrayList<Module> getModules() {
+                 return modules;
+                }
+                
+                public void setModules(ArrayList<Module> modules) {
+                   this.modules = modules;
+                  
+                 }
+                public void addModule(Module module) {
+                   this.modules.add(0, module);
+                 }
                 
 		public  Coursename getCourse() {
 			return this.course;
+                }
+                public void setCourse(Coursename course) {
+                this.course = course;
+    }
 		}
                
                 
                 
-                
-                
-	    public ArrayList<Module> getModules(ArrayList<Module> modules) {
-	        ArrayList<Module> studentsModules = new ArrayList<>();
-	        for (int i=0; i< modules.size(); i++) {
-	                Module module = modules.get(i);
 
-	            if (module.getStudents().contains(this)) {
-	                studentsModules.add(module);
-	            }
-	        }
-	        return studentsModules;
-            }
-}
-
-  

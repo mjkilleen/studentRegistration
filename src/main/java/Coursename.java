@@ -15,19 +15,25 @@ public class Coursename
 {
     
 private String name;
-public ArrayList<Module> mod;
-private DateTime start_date;
-private DateTime end_date;
+public ArrayList<Module> modules;
+private LocalDate start_date;
+private LocalDate end_date;
 
 
-public Coursename(String n, ArrayList<Module> mod, DateTime s_date, DateTime f_date)
+public Coursename(String n, ArrayList<Module> modules, LocalDate s_date, LocalDate f_date)
     {
 	this.name = n;
-	this.mod = mod;
+	this.modules = modules;
 	this.start_date = s_date;
 	this.end_date = f_date;
     }
+ public void addModule(Module module) {
+        this.modules.add(0, module);
 
+        for(Student student: module.getStudents()) {
+            student.setCourse(this);
+        }
+    }
 
 
 public String getName() {
@@ -39,24 +45,24 @@ public void setName(String name){
     }
 
 public ArrayList<Module> getModules() {
-    return this.mod;
+    return this.modules;
     }   
 
 public void setModules(ArrayList<Module>  modules){
-    this.mod = modules;
+    this.modules = modules;
     }
 
-public DateTime getStartDate() {
+public LocalDate getStartDate() {
     return this.start_date;
     }
-public DateTime getEndDate() {
+public LocalDate getEndDate() {
     return this.end_date;
     }
 
-public void setStartDate(DateTime start_date) {
+public void setStartDate(LocalDate start_date) {
     this.start_date = start_date;
     }
-public void setEndDate(DateTime end_date) {
+public void setEndDate(LocalDate end_date) {
     this.end_date = end_date;
    }
 }
